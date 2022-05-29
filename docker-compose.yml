@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  grafana:
+    image: immutable-grafana
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: verysecret
+  prometheus:
+    image: prom/prometheus:v2.26.0
+    ports:
+      - "9090:9090"
